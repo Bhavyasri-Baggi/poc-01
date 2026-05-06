@@ -38,11 +38,16 @@ pipeline {
         }
 
         stage('Dependency Check') {
-            steps {
-                sh 'dependency-check.sh --project poc-01 --scan ./poc-01 --format HTML'
-            }
-        }
-
+    steps {
+        sh '''
+        dependency-check.sh \
+        --project poc-01 \
+        --scan ./poc-01 \
+        --format HTML \
+        --noupdate
+        '''
+    }
+}
         stage('Package') {
             steps {
                 dir('poc-01') {
