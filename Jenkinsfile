@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        IMAGE_NAME = "bhavyasri/poc-01"
+        IMAGE_NAME = "baggibhavya/poc-01"
     }
 
     stages {
