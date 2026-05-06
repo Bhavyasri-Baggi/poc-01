@@ -40,11 +40,12 @@ pipeline {
         stage('Dependency Check') {
             steps {
                 sh '''
-                /home/ec2-user/dependency-check/bin/dependency-check.sh \
+                /opt/dependency-check/bin/dependency-check.sh \
                 --project poc-01 \
                 --scan ./poc-01 \
                 --format HTML \
                 --noupdate
+
                 '''
             }
         }
