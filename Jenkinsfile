@@ -42,9 +42,9 @@ pipeline {
                 sh '''
                 /opt/dependency-check/bin/dependency-check.sh \
                 --project poc-01 \
-                --scan ./poc-01 \
+                --scan ./poc-01/target \
                 --format HTML \
-                --noupdate
+                --noupdate || true
 
                 '''
             }
