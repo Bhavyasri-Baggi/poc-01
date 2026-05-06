@@ -17,21 +17,27 @@ pipeline {
 
         stage('Build & Test') {
             steps {
-                sh 'mvn clean test'
+                dir('poc-01') {
+                    sh 'mvn clean test'
+                }
             }
         }
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('sonarqube') {
-                    sh 'mvn sonar:sonar'
+                dir('poc-01') {
+                    withSonarQubeEnv('sonarqube') {
+                        sh 'mvn sonar:sonar'
+                    }
                 }
             }
         }
 
         stage('Package') {
             steps {
-                sh 'mvn package -DskipTests'
+                dir('poc-01') {
+                    sh 'mvn package -DskipTests'
+                }
             }
         }
     }
