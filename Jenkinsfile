@@ -86,7 +86,7 @@ pipeline {
                 sh '''
                 docker stop poc-01 || true
                 docker rm poc-01 || true
-                docker run -d -p 8081:8080 --name poc-01 $IMAGE_NAME
+                docker run -d -p 3000:8080 --name poc-01 $IMAGE_NAME
                 '''
             }
         }
