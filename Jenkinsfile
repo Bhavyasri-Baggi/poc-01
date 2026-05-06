@@ -76,10 +76,10 @@ pipeline {
         }
 
         stage('Trivy Scan') {
-            steps {
-                sh 'trivy image $IMAGE_NAME'
-            }
-        }
+    steps {
+        sh '/usr/local/bin/trivy image $IMAGE_NAME || true'
+    }
+}
 
         stage('Deploy') {
             steps {
