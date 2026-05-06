@@ -38,16 +38,17 @@ pipeline {
         }
 
         stage('Dependency Check') {
-    steps {
-        sh '''
-        dependency-check.sh \
-        --project poc-01 \
-        --scan ./poc-01 \
-        --format HTML \
-        --noupdate
-        '''
-    }
-}
+            steps {
+                sh '''
+                /home/ec2-user/dependency-check/bin/dependency-check.sh \
+                --project poc-01 \
+                --scan ./poc-01 \
+                --format HTML \
+                --noupdate
+                '''
+            }
+        }
+
         stage('Package') {
             steps {
                 dir('poc-01') {
